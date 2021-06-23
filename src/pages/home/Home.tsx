@@ -4,20 +4,20 @@ import logoImg from "../../assets/images/logo.svg"
 import googleIconImg from "../../assets/images/google-icon.svg"
 import { PageAuth, Aside, Main, MainContent, Separator, CreateRoom } from "../auth"
 import { Button } from "../../components/button/Button"
-import { auth, firebase } from "../../services/firebase"
+import { useContext } from 'react'
+import { AuthContext } from '../../App'
 
 export const Home = () => {
   const history = useHistory();
+  const { signInWithGoogle, user } = useContext(AuthContext)
 
-  function handleCreateRoom() {
-    const provider = new firebase.auth.GoogleAuthProvider();
+  async function handleCreateRoom() {
+    if (!user) {
+      await signInWithGoogle()
+    }
 
-    auth.signInWithPopup(provider).then(result => {
-      console.log(result)
       history.push('/rooms/new')
-    })
-
-  }
+    }
 
   return (
     <PageAuth>
