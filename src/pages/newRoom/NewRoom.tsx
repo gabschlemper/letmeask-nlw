@@ -3,11 +3,10 @@ import illustrationImg from "../../assets/images/illustration.svg"
 import logoImg from "../../assets/images/logo.svg"
 import { PageAuth, Aside, Main, MainContent } from "../auth"
 import { Button } from "../../components/button/Button"
-import { useContext } from "react"
-import { AuthContext } from "../../App"
+// import { useAuth } from "../../hooks/useAuth"
 
 export const NewRoom = () => {
-  const { user } = useContext(AuthContext)
+  // const { user } = useAuth();
 
   return (
     <PageAuth>
@@ -20,7 +19,6 @@ export const NewRoom = () => {
       <Main>
         <MainContent>
           <img src={logoImg} alt="Letmeask" />
-          <h1>{user?.name}</h1>
           <h2>Criar uma nova sala</h2>
           <form>
             <input

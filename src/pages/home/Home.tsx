@@ -4,12 +4,11 @@ import logoImg from "../../assets/images/logo.svg"
 import googleIconImg from "../../assets/images/google-icon.svg"
 import { PageAuth, Aside, Main, MainContent, Separator, CreateRoom } from "../auth"
 import { Button } from "../../components/button/Button"
-import { useContext } from 'react'
-import { AuthContext } from '../../App'
+import { useAuth } from '../../hooks/useAuth'
 
 export const Home = () => {
   const history = useHistory();
-  const { signInWithGoogle, user } = useContext(AuthContext)
+  const { signInWithGoogle, user } = useAuth();
 
   async function handleCreateRoom() {
     if (!user) {
