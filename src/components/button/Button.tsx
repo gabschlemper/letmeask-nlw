@@ -1,7 +1,5 @@
-import { ButtonHTMLAttributes } from "react";
 import {ButtonStyle} from "./style"
-
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+import { ButtonProps } from "./types"
 
 export const Button: React.FC<ButtonProps> = (props) => {
   return (
